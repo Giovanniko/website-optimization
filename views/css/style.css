@@ -35,11 +35,21 @@ form {
   height: 100px; 
   width: 73.333px;
   left:auto;
+
 }
+
+/* .mover {
+      position: fixed;
+      width: 256px;
+      z-index: -1;
+      will-change: left; 
+}*/
+
 
 .randomPizzaContainer {
   float: left;
   display: flex;
+  
 }
 
 .randomPizzaContainer:after {
