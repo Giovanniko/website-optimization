@@ -30,6 +30,27 @@ Some useful tips to help you get started:
 
 Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
 
+My Optimizations:
+
+1. Put all blocking CSS and scripts at the bottom of the index.html:
+
+2. Optimized personal profile picture and Cam's pizzeria picture using [tinyjpg.com](https://tinyjpg.com) and by rescaling with Gimp.
+
+3. Consolidated the print.css file with the styles.css file:
+
+4. Removed the webfonts link completely. Fonts are still acceptable.
+
+5. Put async on main.js to avoid render blocking js: 
+
+                `<script async src="js/perfmatters.js"></script>`
+
+Latest run on PageSpeed Insights gave a mobile score of 99 (and a desktop of 93).
+
+![image](img/PageSpeed-mobile.png)
+
+
+
+
 #### Part 2: Optimize Frames per Second in pizza.html
 
 To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 

@@ -32,10 +32,11 @@ form {
 .mover {
   position: fixed;
   z-index: -1;
-  height: 100px; 
+  height: 100px;
   width: 73.333px;
-  left:auto;
-
+/*   will-change: transform;
+  transform: translate(20px); */
+  /*   left:auto; */
 }
 
 /* .mover {

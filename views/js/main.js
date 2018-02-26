@@ -511,7 +511,20 @@ function updatePositions() {
   //adjusts the left propert according to one of 5 phase values
   for (var i = 0; i < movers.length; i++) {
     var phase = Math.sin((scrollTop / 1250) + (i % 5));
-    movers[i].style.left = movers[i].basicLeft + 100 * phase + 'px';
+//     var newLeft = (100 * phase);
+//     console.log("newLeft: " + newLeft);
+//     console.log("BasicLeft: " + movers[i].basicLeft);
+//     var translateLeft = movers[i].basicLeft + newLeft + 'px';
+//     toString(translateLeft);
+//     console.log("Translate Left: " + translateLeft);
+   
+   movers[i].style.left = movers[i].basicLeft + 100 * phase + 'px';//original code do not delete for now
+//    console.log('moversStyleLeft: ' + movers[i].style.left);
+    //movers[i].style.transform = 'rotate (' + 100 + 'deg)';
+   //function trans(movers, translateLeft) {
+       // movers[i].style.transform = 'translatex('translateLeft')';
+   //}
+   //trans();
   }
   
 //   User Timing API to the rescue again. Seriously, it's worth learning.
