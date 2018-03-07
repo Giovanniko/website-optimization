@@ -290,8 +290,8 @@ function updatePositions() {
 	for (var i = 0; i < 5; i++) {
 		phaseArray[i] = Math.sin((scrollTop) + (i % 5)) * 100;
 	}
-	for (var i = 0; i < movers.length; i++) {
-		movers[i].style.transform = "translateX(" + (phaseArray[i % 5]) + "px)";
+	for (var j = 0; j < movers.length; j++) {
+		movers[j].style.transform = "translateX(" + (phaseArray[j % 5]) + "px)";
 	}
 	//   User Timing API to the rescue again. Seriously, it's worth learning.
 	//   Super easy to create custom metrics.

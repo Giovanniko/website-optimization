@@ -50,7 +50,7 @@ TODO: Find another way to import fonts without lowering pageSpeed scores.
 
 6. Latest run on PageSpeed Insights gave a mobile score of 99 (and a desktop of 93).
 
-![image](img/PageSpeed-mobile.png)
+    ![image](img/PageSpeed-mobile.png)
 
 
 #### Part 2: Optimize Frames per Second in pizza.html
@@ -95,7 +95,7 @@ Also changed the  ```.basicWidth``` property to ```.left``` because the transfor
 
     This was supposed to make less calculations, only 5,  and enhance performance. I did not notice a great improvement. Calling the array from inside the next ``for`` loop for the position transform may be offsetting these gains.
 
-11. lastly i put the files through and online minifier as I was still struggling with my gulpfile when minimizing css with the ```uglify()``` module.
+11. lastly I put the files through an online minifier as I was still struggling with my gulpfile when minimizing css with the ```uglify()``` module.
 
 ### b. Sliding for different pizzas sizes in less than 5ms:
 
