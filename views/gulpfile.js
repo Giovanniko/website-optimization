@@ -38,8 +38,8 @@ const gulp = require('gulp'),
 gulp.task("minifyScripts", function() {
     return gulp.src('js/main.js')
         .pipe(uglify())
-        .pipe(rename('app.min.js'))
-        .pipe(gulp.dest('dist/js'));
+        .pipe(rename('main.min.js'))
+        .pipe(gulp.dest('js'));
 });
 
 //TODO: rename each image with a separate min extension
@@ -49,9 +49,9 @@ gulp.task("imagemin", function () {
 		.pipe(gulp.dest('dist/images'))//needed 'dist' added, showing error due to desktop.ini !?!
 });
 
-gulp.task("build", ["minifyScripts", "imagemin"], function() {
+gulp.task("build", ["minifyScripts"], function() {
     return gulp.src(["css/app.min.css", "js/app.min.js", "images", "pizza.html"], { base: './'})
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task("default", ["build"]);
+gulp.task("default", ["minifyScripts"]);

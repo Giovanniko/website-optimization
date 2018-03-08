@@ -253,8 +253,8 @@ var resizePizzas = function (size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 var menuLength = 100; //create a constant as we know we want to offer 100 amazing pizza combinations.
 // This for-loop actually creates and appends all of the pizzas when the page loads
+var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < menuLength; i++) {
-	var pizzasDiv = document.getElementById("randomPizzas");
 	pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 // User Timing API again. These measurements tell you how long it took to generate the initial pizzas
@@ -288,7 +288,7 @@ function updatePositions() {
 	// calls to phaseArrayDID NOT IMPROVE FPS VALUES
 	var phaseArray = [];
 	for (var i = 0; i < 5; i++) {
-		phaseArray[i] = Math.sin((scrollTop) + (i % 5)) * 100;
+		phaseArray[i] = Math.sin((scrollTop) + (i)) * 100; //as per review modulus not needed as number of phase values will always be 5 (i = 0 to 4)
 	}
 	for (var j = 0; j < movers.length; j++) {
 		movers[j].style.transform = "translateX(" + (phaseArray[j % 5]) + "px)";
@@ -306,10 +306,10 @@ function updatePositions() {
 window.addEventListener('scroll', updatePositions);
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function () {
-	var cols = screen.width / 250;
-	var rows = screen.height / 225;
+	var cols = 8;
+	var rows = Math.floor(screen.height / 225);
 	var PizzaOrderSize = Math.floor(rows * cols); //changed i from 200 to screen-dependent amount, it is limited to three rows, see .top property below
-	var s = 256; //TODO: Change amount of pizzas dynamically with window size
+	var s = 256; //TODO: Change amount of pizzas dynamically with window size to fill mobile screens
 	for (var i = 0; i < PizzaOrderSize; i++) {
 		var elem = document.createElement('img');
 		elem.className = 'mover';
@@ -320,5 +320,5 @@ document.addEventListener('DOMContentLoaded', function () {
 		elem.style.top = (Math.floor(i / cols) * s) + 'px'; //gives 24/8 = 3 rows: 0px 256px 512px
 		document.querySelector("#movingPizzas1").appendChild(elem);
 	}
-	requestAnimationFrame(updatePositions); //improved performance by eliminating layer tree calcs in line with function call
+	requestAnimationFrame(updatePositions); //improved performance by eliminating inline layer tree calcs with function call
 });

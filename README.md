@@ -50,7 +50,7 @@ TODO: Find another way to import fonts without lowering pageSpeed scores.
 
 6. Latest run on PageSpeed Insights gave a mobile score of 99 (and a desktop of 93).
 
-    ![image](img/PageSpeed-mobile.png)
+![image](img/PageSpeed-mobile.png)
 
 
 #### Part 2: Optimize Frames per Second in pizza.html
@@ -82,18 +82,23 @@ TODO: Figure a way to automatically adjust the number of pizzas provided for dif
 Also changed the  ```.basicWidth``` property to ```.left``` because the transform method would relate to the orignal ```.left``` property for calculations.
 
 9.  set the number of moving pizza elements to be created on loading to fit the screen size.
-                ```var cols = screen.width / 250;```
+                ```var cols = 8;//as suggested in review to avoid # of phases = cols```
                 ```var rows = screen.height / 225;```
                 ```var PizzaOrderSize = Math.floor(rows * cols);```
 
-    TODO: this could be modified to recalcuate on window resizing
+    TODO: this could be modified to recalcuate on window resizing or for mobile
     
 10. created an independent array ```phaseArray``` outside of the main for loop:
   ```var phaseArray = [];```
     ```for (var i = 0; i < 5; i++) {```
-    ```phaseArray[i] = Math.sin((scrollTop) + (i % 5)) * 100;}```
+    ```phaseArray[i] = Math.sin((scrollTop) + (i)) * 100;} //removed modulus as i = i%5```
 
     This was supposed to make less calculations, only 5,  and enhance performance. I did not notice a great improvement. Calling the array from inside the next ``for`` loop for the position transform may be offsetting these gains.
+    
+12. as suggested in the first review I removed the selection of pizzasDiv from the for loop as only needed once: 
+ ```var pizzasDiv = document.getElementById("randomPizzas");```
+```for (var i = 2; i < menuLength; i++) {```
+	```pizzasDiv.appendChild(pizzaElementGenerator(i));}```
 
 11. lastly I put the files through an online minifier as I was still struggling with my gulpfile when minimizing css with the ```uglify()``` module.
 
